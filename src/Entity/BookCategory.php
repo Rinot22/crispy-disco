@@ -11,13 +11,21 @@ class BookCategory
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private ?int $id = null;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $title;
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $slug;
+
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
     public function getId(): ?int
     {
